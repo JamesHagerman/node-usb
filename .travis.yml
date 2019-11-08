@@ -22,24 +22,28 @@ env:
   - PREBUILD_TARGETS="6.0.0 8.0.0 10.0.0 12.0.0 13.0.0"
     # Supported Electron versions: https://electronjs.org/docs/tutorial/electron-timelines
   - PREBUILD_ELECTRON_TARGETS="4.0.4 5.0.0 6.0.0 7.0.0"
+  matrix:
+  - ARCH="x64"
+  - ARCH="ia32"
+  - ARCH="arm64"
 
 matrix:
-  include:
-    - os: windows
-      env: ARCH="x64"
-      arch: amd64
-    - os: windows
-      env: ARCH="ia32"
-      arch: amd64
-    - os: osx
-      env: ARCH="x64"
-      arch: amd64
-    - os: linux
-      env: ARCH="x64"
-      arch: amd64
-    - os: linux
-      env: ARCH="arm64"
-      arch: arm64
+#  include:
+#    - os: windows
+#      env: ARCH="x64"
+#      arch: amd64
+#    - os: windows
+#      env: ARCH="ia32"
+#      arch: amd64
+#    - os: osx
+#      env: ARCH="x64"
+#      arch: amd64
+#    - os: linux
+#      env: ARCH="x64"
+#      arch: amd64
+#    - os: linux
+#      env: ARCH="arm64"
+#      arch: arm64
 
   exclude:
   - os: linux
@@ -50,6 +54,20 @@ matrix:
     env: ARCH="arm64"
   - os: windows
     env: ARCH="arm64"
+
+  - os: osx
+    arch: arm64
+  - os: windows
+    arch: arm64
+
+#  - os: osx
+#    env: ARCH="ia32"
+#  - os: osx
+#    env: ARCH="arm64"
+#  - os: windows
+#    env: ARCH="arm64"
+#  - os: windows
+#    env: ARCH="arm64"
 
 before_install:
 - |
