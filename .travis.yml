@@ -16,6 +16,7 @@ addons:
     packages:
     - libudev-dev
     - nodejs
+    - npm
 
 env:
   global:
